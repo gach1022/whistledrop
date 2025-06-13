@@ -1,0 +1,5 @@
+serverdb_data/*
+!serverdb_data/.gitkeep
+
+journalistdb_data/*
+!journalistdb_data/.gitkeep

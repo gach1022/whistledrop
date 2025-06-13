@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    networks:
+      - whistledrop_net
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - SERVER_DB_URL=postgresql://serveruser:serverpass@serverdb:5432/serverdb
+      - JOURNALIST_DB_URL=postgresql://journalistuser:journalistpass@journalistdb:5432/journalistdb
+    networks:
+      - whistledrop_net
+    depends_on:
+      - serverdb
+      - journalistdb
+
+  serverdb:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: serverdb
+      POSTGRES_USER: serveruser
+      POSTGRES_PASSWORD: serverpass
+    volumes:
+      - ./serverdb_data:/var/lib/postgresql/data
+    networks:
+      - whistledrop_net
+    ports:
+      - "5434:5432"
+
+  journalistdb:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: journalistdb
+      POSTGRES_USER: journalistuser
+      POSTGRES_PASSWORD: journalistpass
+    volumes:
+      - ./journalistdb_data:/var/lib/postgresql/data
+    networks:
+      - whistledrop_net
+    ports:
+      - "5433:5432"
+
+networks:
+  whistledrop_net:
+    driver: bridge
