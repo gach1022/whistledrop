@@ -54,4 +54,4 @@ python generate_keys.py
     ```
 
 ### Demo
-[📹 Video ansehen](whistledrop\Demo\Demo_Whistledrop.mp4)
+[📹 Video ansehen](\Demo\Demo_Whistledrop.mp4)
