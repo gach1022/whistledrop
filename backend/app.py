@@ -53,6 +53,18 @@ def rsa_encrypt_key(aes_key, public_key_pem):
     )
     return encrypted
 
+START_HTML = """
+<!doctype html>
+<title>WhistleDrop Login</title>
+<h1>Willkommen bei WhistleDrop</h1>
+<form action="/admin" method="get">
+    <button type="submit">Login</button>
+</form>
+"""
+
+@app.route('/', methods=['GET'])
+def startseite():
+    return render_template_string(START_HTML)
 
 ADMIN_HTML = """
 <!doctype html>
@@ -78,8 +90,8 @@ ADMIN_HTML = """
 </table>
 """
 
-@app.route('/', methods=['GET'])
-def startseite():
+@app.route('/admin', methods=['GET'])
+def admin_uploads():
     uploads = []
     with get_server_conn() as conn:
         with conn.cursor() as cur:
