@@ -13,7 +13,7 @@ Führe die Migration aus um die Tabellen in der DB anzulegen
 ```bash
 sudo docker exec -it whistledrop-backend-1 bash
 cd /app
-pyhton migrations.pysudo docker exec -it whistledrop-backend-1 bash
+pyhton migrations.py
 ```
 
 ### 3. Schlüssel generieren
