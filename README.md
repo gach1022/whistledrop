@@ -52,3 +52,6 @@ python generate_keys.py
     ```bash
     python decrypt_file.py "C:/Users/DeinName/Downloads/Dateiname.pdf.encrypted"
     ```
+
+### Demo
+[📹 Video ansehen](whistledrop\Demo\Demo_Whistledrop.mp4)
