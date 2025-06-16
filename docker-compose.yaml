@@ -31,7 +31,7 @@ services:
       POSTGRES_USER: serveruser
       POSTGRES_PASSWORD: serverpass
     volumes:
-      - ./serverdb_data:/var/lib/postgresql/data
+      - serverdb_data:/var/lib/postgresql/data
     networks:
       - whistledrop_net
     ports:
@@ -45,7 +45,7 @@ services:
       POSTGRES_USER: journalistuser
       POSTGRES_PASSWORD: journalistpass
     volumes:
-      - ./journalistdb_data:/var/lib/postgresql/data
+      - journalistdb_data:/var/lib/postgresql/data
     networks:
       - whistledrop_net
     ports:
@@ -54,3 +54,7 @@ services:
 networks:
   whistledrop_net:
     driver: bridge
+
+volumes:
+  serverdb_data:
+  journalistdb_data:
