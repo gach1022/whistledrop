@@ -13,6 +13,9 @@ HTML = """
   <input type=file name=file required>
   <input type=submit value=Hochladen>
 </form>
+<p>
+Das Backend erzeugt einen zufälligen symmetrischen AES-Schlüssel und verschlüsselt das Dokument. Gleichzeitig wird der AES-Schlüssel mit einem unbenutzten öffentlichen RSA-Schlüssel verschlüsselt und zusammen mit dem verschlüsselten PDF in einer Datenbank abgelegt.
+</p>
 {% if msg %}
   <p>{{msg}}</p>
 {% endif %}
